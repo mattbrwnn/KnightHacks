@@ -1,23 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Chatbot from './components/message'; // Import your Chatbot component
+import React, { useState } from 'react';
+//import { StyleSheet, Text, TextInput, View, Image, SafeAreaView, TouchableOpacity, Button } from 'react-native';
+//import { supabase } from './components/auth/supabase.js';
+//import SignIn from './components/signIn.js';
+//import SignUp from './components/signUp.js';
+//import Questionaire from './components/questionaire.js';
+import  TranslateText from './components/message.js';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
+const Stack = createStackNavigator();
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      {/* Replace the existing content with your Chatbot component */}
-      <Chatbot />
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <NavigationContainer>
+      <Stack.Navigator>
+        {/* Define a Stack.Screen component for each screen */}
+        {/*<Stack.Screen name="SignIn" component={SignIn} />*/}
+        {/*<Stack.Screen name="SignUp" component={SignUp} />*/}
+        {/*<Stack.Screen name="Questionaire" component={Questionaire} />*/}
+        <Stack.Screen
+  name="Message"
+  component={TranslateText}
+  options={{// Set headerShown to false to hide the header
+  }}
+/>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
